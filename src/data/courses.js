@@ -83,7 +83,8 @@ export const courses = [
         {
           type: "youtube",
           title: "Unity Project Demos",
-          url: "https://www.youtube.com/playlist?list=PLQcNEo7_06TPccPgCavhhzljVeh3k3p0s"
+          url: "https://www.youtube.com/playlist?list=PLQcNEo7_06TPccPgCavhhzljVeh3k3p0s",
+          thumbnail: "https://i.ytimg.com/vi/aebYVy0wOIc/hqdefault.jpg"
         }
       ]
     },
@@ -129,12 +130,14 @@ export const courses = [
         {
           type: "youtube",
           title: "Unity Demos",
-          url: "https://www.youtube.com/playlist?list=PLQcNEo7_06TO_2EWm8qUaUJ6NR4J5-1tr"
+          url: "https://www.youtube.com/playlist?list=PLQcNEo7_06TO_2EWm8qUaUJ6NR4J5-1tr",
+          thumbnail: "https://i.ytimg.com/vi/NfNO7qToKVA/hqdefault.jpg"
         },
         {
           type: "youtube",
           title: "Final Project Demo: Augmented Reality Application",
-          url: "https://www.youtube.com/playlist?list=PLQcNEo7_06TOCbVSB4Zx0EqMOmWWIxbpr"
+          url: "https://www.youtube.com/playlist?list=PLQcNEo7_06TOCbVSB4Zx0EqMOmWWIxbpr",
+          thumbnail: "https://i.ytimg.com/vi/U8gMF8fKCYA/hqdefault.jpg"
         }
       ]
     },
@@ -147,7 +150,8 @@ export const courses = [
         {
           type: "youtube",
           title: "Project Demos",
-          url: "https://www.youtube.com/playlist?list=PLQcNEo7_06TPYdRqFzadT9Ycx0Oatii3v"
+          url: "https://www.youtube.com/playlist?list=PLQcNEo7_06TPYdRqFzadT9Ycx0Oatii3v",
+          thumbnail: "https://i.ytimg.com/vi/bo3j7X1U-pQ/hqdefault.jpg"
         },
         {
           type: "github",
