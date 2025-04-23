@@ -49,13 +49,28 @@ export const courses = [
       resources: [
         {
           type: "paper",
-          title: "Algorithm Implementations Repository",
-          url: "https://github.com/yourusername/advanced-algorithms"
+          title: "Paper Review: New Hashing Framework for Multimedia Retrieval",
+          url: "https://github.com/arafaysaleem/portfolio/blob/master/public/assets/Assigment%201%20-%20COP6731.pdf"
         },
         {
           type: "paper",
-          title: "Research Paper: Optimizing Graph Algorithms",
-          url: "https://example.com/paper"
+          title: "Paper Review: New NLP technique for Music Composition",
+          url: "https://github.com/arafaysaleem/portfolio/blob/master/public/assets/Assigment%202%20-%20COP6731.pdf"
+        },
+        {
+          type: "paper",
+          title: "Paper Review: New Data Clustering Algorithm with Constraints",
+          url: "https://github.com/arafaysaleem/portfolio/blob/master/public/assets/Assigment%203%20-%20COP6731.pdf"
+        },
+        {
+          type: "paper",
+          title: "Paper Review: Deep Metric Learning",
+          url: "https://github.com/arafaysaleem/portfolio/blob/master/public/assets/Assigment%204%20-%20COP6731.pdf"
+        },
+        {
+          type: "paper",
+          title: "Research Project: Deep Hashing For Faster Multimedia Retrieval",
+          url: "https://github.com/arafaysaleem/portfolio/blob/master/public/assets/Project%20-%20COP6731.pdf"
         }
       ]
     },
