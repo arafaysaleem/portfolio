@@ -149,5 +149,43 @@ export const courses = [
           url: "https://github.com/yourusername/ml-projects"
         }
       ]
+    },
+    {
+      id: "IDS6267",
+      title: "Understanding Humans for Modeling and Simulation",
+      code: "IDS6267",
+      description: "This course provided an in-depth understanding of human behavior modeling and simulation. We explored various techniques for modeling human behavior, including agent-based modeling, system dynamics, and discrete event simulation. The coursework included hands-on projects implementing human behavior models and simulations using industry-standard tools and frameworks. We also studied the principles of human factors, cognitive psychology, and social dynamics in the context of modeling and simulation.",
+      resources: [
+        {
+          type: "youtube",
+          title: "Final Project Demo: Image Classification System",
+          url: "https://youtube.com/watch?v=example",
+          thumbnail: "https://i.ytimg.com/vi/example/hqdefault.jpg"
+        },
+        {
+          type: "github",
+          title: "Machine Learning Projects Repository",
+          url: "https://github.com/yourusername/ml-projects"
+        }
+      ]
+    },
+    {
+      id: "IDS6938",
+      title: "Introduction to Digital Transformation and Digital Twins",
+      code: "IDS6938",
+      description: "This course provided an in-depth understanding of digital transformation and digital twins. We explored various concepts and technologies related to digital transformation, including IoT, big data, and cloud computing. The coursework included hands-on projects implementing digital twin solutions using industry-standard tools and frameworks. We also studied the principles of data analytics, machine learning, and artificial intelligence in the context of digital transformation.",
+      resources: [
+        {
+          type: "youtube",
+          title: "Final Project Demo: Image Classification System",
+          url: "https://youtube.com/watch?v=example",
+          thumbnail: "https://i.ytimg.com/vi/example/hqdefault.jpg"
+        },
+        {
+          type: "github",
+          title: "Machine Learning Projects Repository",
+          url: "https://github.com/yourusername/ml-projects"
+        }
+      ]
     }
   ];
