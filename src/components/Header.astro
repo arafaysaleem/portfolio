@@ -26,7 +26,10 @@ const degree = "Master of Science in Computer Science";
           </a>
         </div>
       </div>
-      <a href="https://github.com/arafaysaleem/portfolio" target="_blank" rel="noopener noreferrer" class="view-code-btn">View Repo</a>
+      <div class="action-buttons">
+        <button id="export-pdf-btn" class="export-pdf-btn">Export PDF</button>
+        <a href="https://github.com/arafaysaleem/portfolio" target="_blank" rel="noopener noreferrer" class="view-code-btn">View Repo</a>
+      </div>
     </div>
   </div>
 </header>
@@ -43,7 +46,7 @@ const degree = "Master of Science in Computer Science";
   .header-content {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Space between logo, profile, and button */
+    justify-content: space-between; /* Space between logo, profile, and buttons */
     position: relative;
   }
 
@@ -62,34 +65,25 @@ const degree = "Master of Science in Computer Science";
     flex-grow: 1; /* Ensures the profile stays centered */
   }
 
-  h1 {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
-    background: linear-gradient(90deg, var(--accent), var(--accent-light));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  h2 {
-    font-size: 1.25rem;
-    color: #a3b1c2;
-    font-weight: 400;
-    margin-bottom: 1rem;
-  }
-
-  .social-links {
+  .action-buttons {
     display: flex;
-    gap: 1rem;
-    margin-top: 1rem;
+    flex-direction: column;
+    gap: 0.5rem;
   }
 
-  .social-links a {
-    color: var(--text);
-    transition: color 0.2s ease;
+  .export-pdf-btn {
+    background-color: var(--accent-dark);
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
   }
 
-  .social-links a:hover {
-    color: var(--accent);
+  .export-pdf-btn:hover {
+    background-color: var(--accent-light);
   }
 
   .view-code-btn {
@@ -105,4 +99,76 @@ const degree = "Master of Science in Computer Science";
   .view-code-btn:hover {
     background-color: var(--accent-light);
   }
+
+  /* Hide the Export PDF button, GitHub, LinkedIn icons, and View Repo button in the PDF */
+  @media print {
+    .export-pdf-btn,
+    .social-links a,
+    .view-code-btn {
+      display: none;
+    }
+  }
 </style>
+
+<script>
+  import html2pdf from 'html2pdf.js';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const exportPdfBtn = document.getElementById('export-pdf-btn')!;
+    const socialLinks = document.querySelector('.social-links')!;
+    const viewRepoBtn = document.querySelector('.view-code-btn')!;
+
+    exportPdfBtn.addEventListener('click', () => {
+      // Expand all collapsible sections
+      document.querySelectorAll('.course-card').forEach(card => {
+        card.classList.add('expanded');
+      });
+
+      // Hide the export button, social links, and view repo button before generating the PDF
+      exportPdfBtn.style.display = 'none';
+      const originalSocialLinksDisplay = socialLinks.style.display;
+      const originalViewRepoDisplay = viewRepoBtn.style.display;
+      socialLinks.style.display = 'none';
+      viewRepoBtn.style.display = 'none';
+
+      // Temporarily remove padding from the body content
+      const mainContent = document.querySelector('main')!;
+      const originalPadding = mainContent.style.padding;
+      mainContent.style.padding = '0';
+
+      // Configure and generate the PDF
+      const element = document.body; // Capture the entire page
+      const pdfWidth = 210; // A4 page width in mm
+      const pdfHeight = 297; // A4 page height in mm
+      const contentWidth = element.offsetWidth; // Get the content width in pixels
+      const contentHeight = element.offsetHeight; // Get the content height in pixels
+      const aspectRatio = contentHeight / contentWidth; // Calculate the aspect ratio
+
+      // Dynamically calculate the scale to fit the content within the PDF
+      const scale = Math.min(pdfWidth / contentWidth, pdfHeight / (contentHeight / aspectRatio));
+
+      const options = {
+        margin: [1, 1, 1, 1], // Add small margins to prevent cropping
+        filename: 'portfolio.pdf',
+        enableLinks: true,
+        image: { type: 'jpeg', quality: 1.0 }, // High-quality images
+        html2canvas: { scale: 3, useCORS: true }, // Enable clickable links
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+      };
+
+      html2pdf()
+        .set(options)
+        .from(element)
+        .save()
+        .finally(() => {
+          // Restore the export button, social links, and view repo button after generating the PDF
+          exportPdfBtn.style.display = 'block';
+          socialLinks.style.display = originalSocialLinksDisplay;
+          viewRepoBtn.style.display = originalViewRepoDisplay;
+
+          // Restore the original padding of the body content
+          mainContent.style.padding = originalPadding;
+        });
+    });
+  });
+</script>
