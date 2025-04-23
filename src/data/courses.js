@@ -81,14 +81,9 @@ export const courses = [
       description: "This course covered the principles of virtual reality (VR) engineering, including VR hardware, software, and interaction techniques. We explored the design and implementation of VR applications, focusing on user experience and immersion. The coursework included hands-on projects developing VR applications using industry-standard tools and frameworks. We also studied the principles of 3D graphics, computer vision, and human-computer interaction in the context of VR.",
       resources: [
         {
-          type: "github",
-          title: "Algorithm Implementations Repository",
-          url: "https://github.com/yourusername/advanced-algorithms"
-        },
-        {
-          type: "paper",
-          title: "Research Paper: Optimizing Graph Algorithms",
-          url: "https://example.com/paper"
+          type: "youtube",
+          title: "Unity Project Demos",
+          url: "https://www.youtube.com/playlist?list=PLQcNEo7_06TPccPgCavhhzljVeh3k3p0s"
         }
       ]
     },
@@ -100,13 +95,28 @@ export const courses = [
       resources: [
         {
           type: "github",
-          title: "Algorithm Implementations Repository",
-          url: "https://github.com/yourusername/advanced-algorithms"
+          title: "Worm Propagation Simulation",
+          url: "https://github.com/arafaysaleem/portfolio/blob/master/public/assets/PA2%20-%20CAP6135.zip"
+        },
+        {
+          type: "github",
+          title: "Image Fuzzer Implementation",
+          url: "https://github.com/arafaysaleem/portfolio/blob/master/public/assets/PA3%20-%20CAP6135.zip"
         },
         {
           type: "paper",
-          title: "Research Paper: Optimizing Graph Algorithms",
-          url: "https://example.com/paper"
+          title: "Paper Review: Protecting Browsers From Extension Vulnerabilities",
+          url: "https://github.com/arafaysaleem/portfolio/blob/master/public/assets/Review%201%20-%20CAP6135.pdf"
+        },
+        {
+          type: "paper",
+          title: "Paper Review: Android Application Security and Privacy",
+          url: "https://github.com/arafaysaleem/portfolio/blob/master/public/assets/Review%202%20-%20CAP6135.pdf"
+        },
+        {
+          type: "paper",
+          title: "Research Project: Dissecting WannaCry Ransomware",
+          url: "https://github.com/arafaysaleem/portfolio/blob/master/public/assets/Project%20-%20CAP6135.pdf"
         }
       ]
     },
@@ -117,14 +127,14 @@ export const courses = [
       description: "This course covered the principles of augmented reality (AR) engineering, including AR hardware, software, and interaction techniques. We explored the design and implementation of AR applications, focusing on user experience and immersion. The coursework included hands-on projects developing AR applications using industry-standard tools and frameworks. We also studied the principles of 3D graphics, computer vision, and human-computer interaction in the context of AR.",
       resources: [
         {
-          type: "github",
-          title: "Algorithm Implementations Repository",
-          url: "https://github.com/yourusername/advanced-algorithms"
+          type: "youtube",
+          title: "Unity Demos",
+          url: "https://www.youtube.com/playlist?list=PLQcNEo7_06TO_2EWm8qUaUJ6NR4J5-1tr"
         },
         {
-          type: "paper",
-          title: "Research Paper: Optimizing Graph Algorithms",
-          url: "https://example.com/paper"
+          type: "youtube",
+          title: "Final Project Demo: Augmented Reality Application",
+          url: "https://www.youtube.com/playlist?list=PLQcNEo7_06TOCbVSB4Zx0EqMOmWWIxbpr"
         }
       ]
     },
@@ -135,14 +145,44 @@ export const courses = [
       description: "This course provided an in-depth understanding of software engineering principles and practices. We explored various software development methodologies, including agile, waterfall, and DevOps. The coursework included hands-on projects implementing software engineering best practices, including requirements analysis, design, implementation, testing, and maintenance. We also studied the principles of software architecture, design patterns, and software quality assurance.",
       resources: [
         {
+          type: "youtube",
+          title: "Project Demos",
+          url: "https://www.youtube.com/playlist?list=PLQcNEo7_06TPYdRqFzadT9Ycx0Oatii3v"
+        },
+        {
           type: "github",
-          title: "Algorithm Implementations Repository",
-          url: "https://github.com/yourusername/advanced-algorithms"
+          title: "Git and Typescript Migrations",
+          url: "https://github.com/arafaysaleem/cen-5016-assignment-1"
+        },
+        {
+          type: "github",
+          title: "Deploying Code",
+          url: "https://abdur-rafay-saleem-cen5016-assn3.onrender.com"
+        },
+        {
+          type: "github",
+          title: "Final Project: Fakeflix - A Movie Streaming Service",
+          url: "https://github.com/arafaysaleem/Fakeflix-UCF"
         },
         {
           type: "paper",
-          title: "Research Paper: Optimizing Graph Algorithms",
-          url: "https://example.com/paper"
+          title: "Research Checkpoint 1",
+          url: "https://github.com/arafaysaleem/portfolio/blob/master/public/assets/Assignment%202%20(CEN5106).pdf"
+        },
+        {
+          type: "paper",
+          title: "Research Checkpoint 2",
+          url: "https://github.com/arafaysaleem/portfolio/blob/master/public/assets/Assignment%202%20(CEN5106)%20-%202.pdf"
+        },
+        {
+          type: "paper",
+          title: "Paper Review 1: Is StackOverflow obsolete?",
+          url: "https://github.com/arafaysaleem/portfolio/blob/master/public/assets/Review%201%20-%20CEN5106.pdf"
+        },
+        {
+          type: "paper",
+          title: "Paper Review 2: Survey on the Usability of AI assistants",
+          url: "https://github.com/arafaysaleem/portfolio/blob/master/public/assets/Review%202%20-%20CEN5106.pdf"
         }
       ]
     },
@@ -151,19 +191,7 @@ export const courses = [
       title: "Design and Analysis of Algorithms",
       code: "COT5405",
       description: "This course covered advanced algorithm design and analysis, including dynamic programming, greedy algorithms, and graph algorithms. We explored algorithmic complexity, NP-completeness, and approximation algorithms, applying these concepts to real-world problems. The coursework included implementing various algorithms and analyzing their performance characteristics.",
-      resources: [
-        {
-          type: "youtube",
-          title: "Final Project Demo: Image Classification System",
-          url: "https://youtube.com/watch?v=example",
-          thumbnail: "https://i.ytimg.com/vi/example/hqdefault.jpg"
-        },
-        {
-          type: "github",
-          title: "Machine Learning Projects Repository",
-          url: "https://github.com/yourusername/ml-projects"
-        }
-      ]
+      resources: []
     },
     {
       id: "IDS6267",
@@ -172,15 +200,14 @@ export const courses = [
       description: "This course provided an in-depth understanding of human behavior modeling and simulation. We explored various techniques for modeling human behavior, including agent-based modeling, system dynamics, and discrete event simulation. The coursework included hands-on projects implementing human behavior models and simulations using industry-standard tools and frameworks. We also studied the principles of human factors, cognitive psychology, and social dynamics in the context of modeling and simulation.",
       resources: [
         {
-          type: "youtube",
-          title: "Final Project Demo: Image Classification System",
-          url: "https://youtube.com/watch?v=example",
-          thumbnail: "https://i.ytimg.com/vi/example/hqdefault.jpg"
+          type: "paper",
+          title: "Final Project: Asynchronous Learning Process Model",
+          url: "https://github.com/arafaysaleem/portfolio/blob/master/public/assets/Humans%20Project.pdf"
         },
         {
-          type: "github",
-          title: "Machine Learning Projects Repository",
-          url: "https://github.com/yourusername/ml-projects"
+          type: "paper",
+          title: "Human Interaction Model",
+          url: "https://github.com/arafaysaleem/portfolio/blob/master/public/assets/annotated-mhi-assignment-1.drawio.png.pdf"
         }
       ]
     },
@@ -191,15 +218,9 @@ export const courses = [
       description: "This course provided an in-depth understanding of digital transformation and digital twins. We explored various concepts and technologies related to digital transformation, including IoT, big data, and cloud computing. The coursework included hands-on projects implementing digital twin solutions using industry-standard tools and frameworks. We also studied the principles of data analytics, machine learning, and artificial intelligence in the context of digital transformation.",
       resources: [
         {
-          type: "youtube",
-          title: "Final Project Demo: Image Classification System",
-          url: "https://youtube.com/watch?v=example",
-          thumbnail: "https://i.ytimg.com/vi/example/hqdefault.jpg"
-        },
-        {
-          type: "github",
-          title: "Machine Learning Projects Repository",
-          url: "https://github.com/yourusername/ml-projects"
+          type: "paper",
+          title: "BPMN - Supply Chain Digital Twin",
+          url: "https://github.com/arafaysaleem/portfolio/blob/master/public/assets/DT%20-%20BPMN.pdf"
         }
       ]
     }
