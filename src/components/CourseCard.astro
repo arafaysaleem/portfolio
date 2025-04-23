@@ -1,0 +1,255 @@
+---
+interface Props {
+  id: string;
+  title: string;
+  code: string;
+  description: string;
+  resources?: {
+    type: 'youtube' | 'github' | 'paper';
+    title: string;
+    url: string;
+    thumbnail?: string;
+  }[];
+}
+
+const { id, title, code, description, resources = [] } = Astro.props;
+---
+
+<div class="course-card" id={id}>
+  <div class="course-header" data-course-id={id}>
+    <div class="course-title">
+      <h3>{title}</h3>
+      <span class="course-code">{code}</span>
+    </div>
+    <button class="expand-btn" aria-label="Toggle course details">
+      <svg class="chevron" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </button>
+  </div>
+  <div class="course-content">
+    <div class="course-description">
+      <p>{description}</p>
+    </div>
+    
+    {resources.length > 0 && (
+      <div class="course-resources">
+        <h4>Resources</h4>
+        <div class="resources-grid">
+          {resources.map(resource => (
+            <div class="resource-card">
+              <a href={resource.url} target="_blank" rel="noopener noreferrer">
+                {resource.type === 'youtube' && resource.thumbnail && (
+                  <div class="thumbnail youtube-thumbnail">
+                    <img src={resource.thumbnail} alt={resource.title} />
+                    <div class="play-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="#fff" stroke="#fff" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                      </svg>
+                    </div>
+                  </div>
+                )}
+                {resource.type === 'github' && (
+                  <div class="thumbnail github-thumbnail">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                    </svg>
+                  </div>
+                )}
+                {resource.type === 'paper' && (
+                  <div class="thumbnail paper-thumbnail">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                      <polyline points="14 2 14 8 20 8"></polyline>
+                      <line x1="16" y1="13" x2="8" y2="13"></line>
+                      <line x1="16" y1="17" x2="8" y2="17"></line>
+                      <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
+                  </div>
+                )}
+                <div class="resource-title">
+                  <span>{resource.title}</span>
+                  {resource.type === 'youtube' && <span class="resource-type youtube">YouTube</span>}
+                  {resource.type === 'github' && <span class="resource-type github">GitHub</span>}
+                  {resource.type === 'paper' && <span class="resource-type paper">Paper</span>}
+                </div>
+              </a>
+            </div>
+          ))}
+        </div>
+      </div>
+    )}
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const courseHeaders = document.querySelectorAll('.course-header');
+    courseHeaders.forEach(header => {
+      header.addEventListener('click', () => {
+        const card = header.closest('.course-card');
+        card?.classList.toggle('expanded');
+      });
+    });
+  });
+</script>
+
+<style>
+  .course-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .course-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+
+  .course-header:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+
+  .course-title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .course-code {
+    background-color: var(--accent-dark);
+    color: white;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-family: 'Fira Code', monospace;
+  }
+
+  .expand-btn {
+    background: none;
+    border: none;
+    color: var(--text);
+    cursor: pointer;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+  }
+
+  .course-card.expanded .expand-btn .chevron {
+    transform: rotate(180deg);
+  }
+
+  .course-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    padding: 0 1.5rem;
+  }
+
+  .course-card.expanded .course-content {
+    max-height: 2000px;
+    padding-bottom: 1.5rem;
+  }
+
+  .course-description {
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+
+  .course-resources h4 {
+    margin-bottom: 1rem;
+    color: var(--accent-light);
+  }
+
+  .resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+  }
+
+  .resource-card {
+    background-color: var(--code-bg);
+    border-radius: 6px;
+    overflow: hidden;
+    transition: transform 0.2s ease;
+  }
+
+  .resource-card:hover {
+    transform: translateY(-3px);
+  }
+
+  .resource-card a {
+    display: block;
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  .thumbnail {
+    position: relative;
+    height: 140px;
+    background-color: #2d333b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .resource-title {
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .resource-type {
+    font-size: 0.75rem;
+    padding: 0.1rem 0.3rem;
+    border-radius: 3px;
+    font-weight: 500;
+  }
+
+  .resource-type.youtube {
+    background-color: #ff0000;
+    color: white;
+  }
+
+  .resource-type.github {
+    background-color: #333;
+    color: white;
+  }
+
+  .resource-type.paper {
+    background-color: #4c8bf5;
+    color: white;
+  }
+</style>

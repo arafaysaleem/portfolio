@@ -1,0 +1,122 @@
+---
+interface Props {
+  type: 'youtube' | 'github' | 'paper';
+  title: string;
+  url: string;
+  thumbnail?: string;
+}
+
+const { type, title, url, thumbnail } = Astro.props;
+---
+
+<div class="resource-link">
+  <a href={url} target="_blank" rel="noopener noreferrer">
+    <div class="resource-content">
+      {type === 'youtube' && thumbnail && (
+        <div class="thumbnail youtube-thumbnail">
+          <img src={thumbnail} alt={title} />
+          <div class="play-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#fff" stroke="#fff" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+          </div>
+        </div>
+      )}
+      {type === 'github' && (
+        <div class="thumbnail github-thumbnail">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+          </svg>
+        </div>
+      )}
+      {type === 'paper' && (
+        <div class="thumbnail paper-thumbnail">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+          </svg>
+        </div>
+      )}
+      <div class="resource-info">
+        <span class="resource-title">{title}</span>
+        <span class="resource-type">{type}</span>
+      </div>
+    </div>
+  </a>
+</div>
+
+<style>
+  .resource-link {
+    background-color: var(--code-bg);
+    border-radius: 6px;
+    overflow: hidden;
+    transition: transform 0.2s ease;
+  }
+
+  .resource-link:hover {
+    transform: translateY(-3px);
+  }
+
+  .resource-link a {
+    display: block;
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  .resource-content {
+    display: flex;
+    align-items: center;
+  }
+
+  .thumbnail {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-color: #2d333b;
+  }
+
+  .youtube-thumbnail {
+    position: relative;
+  }
+
+  .youtube-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .resource-info {
+    padding: 0.75rem 1rem;
+  }
+
+  .resource-title {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+  }
+
+  .resource-type {
+    font-size: 0.75rem;
+    color: #a3b1c2;
+  }
+</style>

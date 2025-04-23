@@ -1,47 +1,111 @@
-# Astro Starter Kit: Minimal
+# Academic Portfolio
 
-```sh
-npm create astro@latest -- --template minimal
+A personal portfolio website showcasing academic projects and research from my Master's in Computer Science program.
+
+## Features
+
+- Clean, developer-friendly design
+- Expandable course sections
+- Support for various media types (YouTube videos, GitHub repositories, research papers)
+- Responsive layout
+
+## Getting Started
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (version 16 or later)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/portfolio.git
+   cd portfolio
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+4. Open your browser and navigate to `http://localhost:4321` to see the website.
+
+## Customization
+
+1. Update personal information in `src/components/Header.astro`
+2. Modify course data in `src/data/courses.js`
+3. Customize styling as needed in individual component files
+
+## Deployment
+
+### GitHub Pages
+
+1. Update the `astro.config.mjs` file with your GitHub username:
+   ```javascript
+   export default defineConfig({
+     site: 'https://yourusername.github.io',
+     base: '/portfolio',
+   });
+   ```
+
+2. Build the website:
+   ```bash
+   npm run build
+   ```
+
+3. Deploy to GitHub Pages:
+   - Create a new repository on GitHub named `portfolio`
+   - Push your code to this repository
+   - Set up GitHub Pages in the repository settings to deploy from the `gh-pages` branch
+
+4. Alternatively, you can use GitHub Actions for automatic deployment. Create a file `.github/workflows/deploy.yml` with the following content:
+
+```yaml
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist
+          branch: gh-pages
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+### Other Hosting Options
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+The built website is static, so it can be deployed to any static site hosting service such as:
+- Netlify
+- Vercel
+- Cloudflare Pages
+- AWS S3
 
-## 🚀 Project Structure
+## License
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+This project is licensed under the MIT License - see the LICENSE file for details.

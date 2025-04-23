@@ -1,16 +1,68 @@
 ---
-
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CourseCard from '../components/CourseCard.astro';
+import { courses } from '../data/courses.js';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Academic Portfolio">
+  <Header />
+  
+  <main>
+    <div class="container">
+      <section class="intro">
+        <h2>My Academic Portfolio</h2>
+        <p>Welcome to my academic portfolio showcasing the projects and research I've completed during my Master's in Computer Science program. Below you'll find a collection of courses I've taken, along with related projects, research papers, and other resources.</p>
+      </section>
+      
+      <section class="courses">
+        <h2>Courses</h2>
+        <div class="courses-grid">
+          {courses.map(course => (
+            <CourseCard 
+              id={course.id}
+              title={course.title}
+              code={course.code}
+              description={course.description}
+              resources={course.resources}
+            />
+          ))}
+        </div>
+      </section>
+    </div>
+  </main>
+  
+  <Footer />
+</Layout>
+
+<style>
+  .intro {
+    margin-bottom: 3rem;
+  }
+  
+  .intro h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--accent-light);
+  }
+  
+  .intro p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #a3b1c2;
+    max-width: 800px;
+  }
+  
+  .courses h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--accent-light);
+  }
+  
+  .courses-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+</style>
