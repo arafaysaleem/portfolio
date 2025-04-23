@@ -4,7 +4,7 @@ interface Props {
   title: string;
   code: string;
   description: string;
-  resources?: {
+  resourceList?: {
     type: 'youtube' | 'github' | 'paper';
     title: string;
     url: string;
@@ -12,7 +12,7 @@ interface Props {
   }[];
 }
 
-const { id, title, code, description, resources = [] } = Astro.props;
+const { id, title, code, description, resourceList = [] } = Astro.props;
 ---
 
 <div class="course-card" id={id}>
@@ -32,11 +32,11 @@ const { id, title, code, description, resources = [] } = Astro.props;
       <p>{description}</p>
     </div>
     
-    {resources.length > 0 && (
+    {resourceList.length > 0 && (
       <div class="course-resources">
         <h4>Resources</h4>
         <div class="resources-grid">
-          {resources.map(resource => (
+          {resourceList.map(resource => (
             <div class="resource-card">
               <a href={resource.url} target="_blank" rel="noopener noreferrer">
                 {resource.type === 'youtube' && resource.thumbnail && (
