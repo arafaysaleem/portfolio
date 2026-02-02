@@ -11,6 +11,6 @@
   },
   "dependencies": {
     "astro": "^5.7.4",
-    "html2pdf.js": "^0.10.3"
+    "html2pdf.js": "^0.14.0"
   }
 }
